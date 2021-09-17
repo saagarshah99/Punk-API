@@ -4,7 +4,8 @@ import "./SearchBox.scss";
 const SearchBox = () => {
     return (
         <div>
-            <h4>Search Box</h4>
+            <label>Search: </label>
+            <input type="text" name="" id="" />
         </div>
     )
 }

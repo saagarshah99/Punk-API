@@ -8,7 +8,7 @@ const FiltersList = () => {
         <div>
             <h4>Filters List</h4>
 
-            <FilterItem />
+            <FilterItem items={["High ABV (>6.0%)", "Classic Range", "Acidic (ph < 4)"]} />
         </div>
     )
 }

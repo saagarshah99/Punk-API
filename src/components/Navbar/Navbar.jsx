@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Navbar.scss";
 
-import FiltersList from "./FiltersList/FiltersList";
+import FiltersList from "./SearchBox/FiltersList/FiltersList";
 import SearchBox from './SearchBox/SearchBox';
 
 const Navbar = () => {

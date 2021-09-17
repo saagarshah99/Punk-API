@@ -4,10 +4,10 @@ import Card from './Card/Card';
 
 const CardList = ({ beerArr }) => {
     
-    return beerArr.map(({ name, image_url }) => {
+    return beerArr.map(({ name, image_url, description }) => {
         return (
             <div>
-                <Card name={name} image={image_url} />
+                <Card name={name} image={image_url} description={description} />
             </div>
         )
     })
