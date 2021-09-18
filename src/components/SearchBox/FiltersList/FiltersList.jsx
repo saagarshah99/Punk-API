@@ -3,10 +3,17 @@ import "./FiltersList.scss";
 
 import FilterItem from "./FilterItem/FilterItem";
 
-const FiltersList = () => {
+const FiltersList = ({ handleFilter }) => {
+    const items = [
+        ["All", "All"],
+        ["High ABV (>6.0%)", "ABV"],
+        ["Classic Range", "Classic"],
+        ["Acidic (ph < 4)", "Acidic"],
+    ]
+    
     return (
         <div className="filter-list">
-            <FilterItem items={["High ABV (>6.0%)", "Classic Range", "Acidic (ph < 4)"]} />
+            <FilterItem handleFilter={handleFilter} items={items} />
         </div>
     )
 }

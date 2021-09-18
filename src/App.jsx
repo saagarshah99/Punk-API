@@ -11,21 +11,31 @@ function App() {
 
   // creating state for searching and function for converting query to lowercase
   const [searchQuery, setSearchQuery] = useState("");
-  const handleInput = event => setSearchQuery(event.target.value.toLowerCase());
-
+  const handleSearch = event => setSearchQuery(event.target.value.toLowerCase());
+  
+  const [filter, setFilter] = useState("");
+  const handleFilter = event => setFilter(event.target.value);
+  
   // checking beers array for any search matches
   const filteredBeers = beers.filter(beer => {
     const name = beer.name.toLowerCase();
     const description = beer.description.toLowerCase();
-
-    return name.includes(searchQuery) || description.includes(searchQuery);
+    const matchFound = name.includes(searchQuery) || description.includes(searchQuery);
+    
+    if(filter === "ABV") return matchFound && beer.abv > 6;
+    else if(filter === "Classic") {
+      return matchFound && beer.description.includes("classic");
+    }
+    else if(filter === "Acidic") return matchFound && beer.ph < 4;
+    
+    return matchFound;
   });
-
+  
   return (
     <div className="App">
         <header className="navbar">
-            <SearchBox searchTerm={searchQuery} handleInput={handleInput} />
-            <FiltersList />
+            <SearchBox searchTerm={searchQuery} handleSearch={handleSearch} />
+            <FiltersList handleFilter={handleFilter} />
         </header>
         
         <main>
