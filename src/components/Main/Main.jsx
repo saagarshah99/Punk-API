@@ -8,11 +8,12 @@ const Main = () => {
     
     return (
         <div>
-            <h2>Main:</h2>
+            <h2>Main</h2>
 
-            <h4>Card List:</h4>
-            <CardList beerArr={beers} />
-            {/* return card list here */}
+            <div className="card-list">
+                <CardList beerArr={beers} />
+                {/* return card list here */}
+            </div>
         </div>
     )
     
