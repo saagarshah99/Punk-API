@@ -15,16 +15,21 @@ function App() {
   const [filter, setFilter] = useState("");
   const handleFilter = event => setFilter(event.target.value);
   
-  // checking beers array for any search matches and applying filters if selected
+  // checking beers array for any search matches and applying filters if any selected
   const filteredBeers = beers.filter(beer => {
-    const name = beer.name.toLowerCase();
-    const description = beer.description.toLowerCase();
-    const matchFound = name.includes(searchQuery) || description.includes(searchQuery);
-    const isClassic = parseInt(beer.first_brewed.split("/")[1]) <= 2010;
-    
+    const matchFound = 
+      beer.name.toLowerCase().includes(searchQuery) || 
+      beer.description.toLowerCase().includes(searchQuery) ||
+      beer.first_brewed.includes(searchQuery) ||
+      beer.ph.toString().includes(searchQuery) ||
+      beer.abv.toString().includes(searchQuery)
+    ;
+
     if(filter === "ABV") return matchFound && beer.abv > 6;
     
-    else if(filter === "Classic") return matchFound && isClassic;
+    else if(filter === "Classic") {
+      return matchFound && parseInt(beer.first_brewed.split("/")[1]) <= 2010;
+    }
 
     else if(filter === "Acidic") return matchFound && beer.ph < 4;
     

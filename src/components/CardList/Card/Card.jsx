@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Card.scss";
 
+// receiving data from array and outputting an individual beer card
 const Card = ({ name, image, description, ph, abv, first_brewed }) => {
     return (
         <div className="card">

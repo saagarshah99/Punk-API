@@ -3,6 +3,7 @@ import "./FiltersList.scss";
 
 import FilterItem from "./FilterItem/FilterItem";
 
+//defining array containing items and passing into another component to output them
 const FiltersList = ({ handleFilter }) => {
     const items = [
         ["All", "All"],
