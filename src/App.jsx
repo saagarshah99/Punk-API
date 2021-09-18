@@ -9,23 +9,23 @@ import FiltersList from "./components/SearchBox/FiltersList/FiltersList";
 
 function App() {
 
-  // creating state for searching and function for converting query to lowercase
+  // creating and handling states for searching and filtering
   const [searchQuery, setSearchQuery] = useState("");
   const handleSearch = event => setSearchQuery(event.target.value.toLowerCase());
-  
   const [filter, setFilter] = useState("");
   const handleFilter = event => setFilter(event.target.value);
   
-  // checking beers array for any search matches
+  // checking beers array for any search matches and applying filters if selected
   const filteredBeers = beers.filter(beer => {
     const name = beer.name.toLowerCase();
     const description = beer.description.toLowerCase();
     const matchFound = name.includes(searchQuery) || description.includes(searchQuery);
+    const isClassic = parseInt(beer.first_brewed.split("/")[1]) <= 2010;
     
     if(filter === "ABV") return matchFound && beer.abv > 6;
-    else if(filter === "Classic") {
-      return matchFound && beer.description.includes("classic");
-    }
+    
+    else if(filter === "Classic") return matchFound && isClassic;
+
     else if(filter === "Acidic") return matchFound && beer.ph < 4;
     
     return matchFound;
