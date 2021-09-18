@@ -9,3 +9,9 @@
     flex-direction: column;
   }
 }
+
+@media screen and (max-height: 1185px) {
+  .App {
+      top: 20%;
+  }
+}
