@@ -1,6 +1,7 @@
 .card {
     border: 1px solid black;
     display: flex;
+    margin: 10px;
     
     section {
         display: flex;
@@ -10,6 +11,7 @@
     }
 
     &__text {width: 80%;}
+    
     &__image {
         width: 20%;
 

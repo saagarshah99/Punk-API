@@ -5,7 +5,10 @@ const Card = ({ name, image, description }) => {
     return (
         <div className="card">
             <section className="card__text">
+                {/* TODO: align all headings evenly */}
                 <h3>{name}</h3>
+                
+                {/* TODO: add scrollbar/see more button (for longer descriptions) */}
                 <p>{description}</p>
             </section>
 

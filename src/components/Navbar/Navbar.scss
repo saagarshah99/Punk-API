@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    height: 50vw;
+    margin: 10px;
+    gap: 10px;
+}
+
+@media screen and (max-width: 992px) {
+    .navbar {
+        height: auto;
+        justify-content: center;
+    }
+}

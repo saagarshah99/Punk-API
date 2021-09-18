@@ -1,3 +1,11 @@
 .App {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+@media screen and (max-width: 992px) {
+  .App {
+    flex-direction: column;
+  }
 }

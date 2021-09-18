@@ -5,18 +5,13 @@ import beers from "../../data/beers";
 import CardList from './CardList/CardList';
 
 const Main = () => {
-    
     return (
-        <div>
-            <h2>Main</h2>
-
+        <main>
             <div className="card-list">
                 <CardList beerArr={beers} />
-                {/* return card list here */}
             </div>
-        </div>
+        </main>
     )
-    
 }
 
 export default Main;

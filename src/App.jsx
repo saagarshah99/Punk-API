@@ -6,8 +6,8 @@ import Main from "./components/Main/Main";
 function App() {
   return (
     <div className="App">
-        <Navbar />
-        <Main />
+        <section><Navbar /></section>
+        <section><Main /></section>
     </div>
   );
 }

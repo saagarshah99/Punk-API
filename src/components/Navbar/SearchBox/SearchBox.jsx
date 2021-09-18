@@ -2,11 +2,15 @@ import React from 'react';
 import "./SearchBox.scss";
 
 const SearchBox = () => {
+    //TODO: use state in order to update the beer output based on the search
+    
     return (
-        <div>
-            <label>Search: </label>
-            <input type="text" name="" id="" />
+        <div className="search-box">
+            <input type="text" name="" id="" placeholder="Search" />
         </div>
+
+        //TODO: Home --> ExploreAlbums (State) --> SearchBox
+        //TODO: somehow attach filters to SearchBox
     )
 }
 

@@ -5,9 +5,7 @@ import FilterItem from "./FilterItem/FilterItem";
 
 const FiltersList = () => {
     return (
-        <div>
-            <h4>Filters</h4>
-
+        <div className="filter-list">
             <FilterItem items={["High ABV (>6.0%)", "Classic Range", "Acidic (ph < 4)"]} />
         </div>
     )

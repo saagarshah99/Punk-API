@@ -6,11 +6,10 @@ import SearchBox from './SearchBox/SearchBox';
 
 const Navbar = () => {
     return (
-        <>
-            <h2>Navbar</h2>
+        <header className="navbar">
             <SearchBox />
             <FiltersList />
-        </>
+        </header>
     )
 }
 
