@@ -5,13 +5,13 @@ const Card = ({ name, image, description }) => {
     return (
         <div className="card">
             <section className="card__text">
+                
                 {/* TODO: align all headings evenly */}
-                <h3>{name}</h3>
+                <h3 className="card__heading">{name}</h3>
                 
                 {/* TODO: add scrollbar/see more button (for longer descriptions) */}
-                <p>{description}</p>
+                <p className="card__description">{description}</p>
             </section>
-
             <section className="card__image">
                 <img src={image} alt={name}  />
             </section>

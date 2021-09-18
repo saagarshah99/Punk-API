@@ -9,16 +9,20 @@
   display: flex;
   align-items: center;
   height: 100vh;
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 10px;
+}
 }
 
 @media screen and (max-width: 992px) {
   .App {
     flex-direction: column;
-  }
-}
 
-@media screen and (max-height: 1185px) {
-  .App {
-      top: 20%;
+    .navbar {justify-content: center;}
   }
 }
+@media screen and (max-height: 1185px) {.App {top: 20%;}}

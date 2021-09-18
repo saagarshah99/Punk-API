@@ -12,12 +12,10 @@
     }
 
     &__text {width: 80%;}
-    
+
     &__image {
         width: 20%;
-
-        img {
-            width: 3vw;
-        }
+        
+        img {width: 3vw;}
     }
 }
