@@ -1,7 +1,7 @@
 import React from 'react';
 import "./FilterItem.scss";
 
-// looping through items to output filters ("All" selected by default)
+// looping through items to output filter checkboxes
 const FilterItem = ({ handleFilter, items }) => {
     return items.map((item, i) => {
         return (
@@ -9,10 +9,8 @@ const FilterItem = ({ handleFilter, items }) => {
                 <section><label>{item[0]}</label></section>
 
                 <section>
-                    <input type="checkbox" name="radFilters"
+                    <input type="checkbox" name="radFilters" 
                     onClick={handleFilter} value={item[1]} />
-                    {/* <input type="checkbox" name="radFilters" defaultChecked={i === 0}
-                    onClick={handleFilter} value={item[1]} /> */}
                 </section>
             </div>
         )

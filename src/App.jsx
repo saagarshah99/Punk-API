@@ -23,6 +23,26 @@ const checkForMatch = (searchQuery, beer) => {
   return keys.filter(key => key.includes(searchQuery)).length > 0;
 }
 
+// returning approriate filtered beers depending on which checkboxes are selected
+const enableSelectedFilters = (matchFound, filterChecks, selectedFilters) => {
+  let filterReturns = [];
+  for (let i = 0; i < filterChecks.length; i++) {
+    if(selectedFilters.includes(filterChecks[i][0])) {
+      filterReturns.push(filterChecks[i][1]);
+    }
+  }
+
+  switch(filterReturns.length) {
+    case(1): return matchFound && filterReturns[0];
+    
+    case(2): return matchFound && filterReturns[0] && filterReturns[1];
+
+    case(3): return matchFound && filterReturns[0] && filterReturns[1] && filterReturns[2];
+
+    default: return matchFound;
+  }
+}
+
 // checking beers array for any search matches and applying filters if any selected
 const getFilteredBeers = (searchQuery, selectedFilters) => {
     return beers.filter(beer => {
@@ -35,21 +55,7 @@ const getFilteredBeers = (searchQuery, selectedFilters) => {
         ["Acidic", ph < 4],
       ];
 
-      let returns = [];
-      for (let i = 0; i < filterChecks.length; i++) {
-        if(selectedFilters.includes(filterChecks[i][0])) {
-          returns.push(filterChecks[i][1]);
-        }
-      }
-
-      if(returns.length === 1) return matchFound && returns[0];
-      else if(returns.length === 2) {
-        return matchFound && returns[0] && returns[1];
-      }
-      else if(returns.length === 3) {
-        return matchFound && returns[0] && returns[1] && returns[2];
-      }
-      return matchFound;
+      return enableSelectedFilters(matchFound, filterChecks, selectedFilters);
     });
 }
 
@@ -58,13 +64,10 @@ function App() {
   // creating and handling states for searching and filtering
   const [searchQuery, setSearchQuery] = useState("");
   const handleSearch = event => setSearchQuery(event.target.value.toLowerCase());
-  // const [filter, setFilter] = useState("");
-  // const handleFilter = event => setFilter(event.target.value);
-  
   const [selectedFilters, setSelectedFilters] = useState([]);
   
-  // update array if filter is checked and the array doesn't already contain this value
-  const handleFilter = event => {
+  // update array (add/remove) if filter is checked and the array doesn't already contain this value
+  const handleFilter = (event) => {
     const checkboxValue = event.target.value;
 
     if(event.target.checked ) {
@@ -73,7 +76,7 @@ function App() {
       }
     }
     else {
-      setSelectedFilters(selectedFilters.filter(item => item !== checkboxValue));
+      setSelectedFilters(selectedFilters.filter(filter => filter !== checkboxValue));
     }
   }
   
