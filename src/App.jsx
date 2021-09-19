@@ -8,9 +8,12 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import FiltersList from "./components/SearchBox/FiltersList/FiltersList";
 
 // checking multiple keys in object for search query match
-const checkForMatch = (searchQuery, {name, description, first_brewed, ph, abv}) => {
+const checkForMatch = (searchQuery, beer) => {
+  const {name, description, first_brewed, ph, abv, food_pairing} = beer;
+  
   const keys = [
     name.toLowerCase(), 
+    food_pairing.join(","),
     description.toLowerCase(),
     first_brewed,
     ph.toString(),
