@@ -2,27 +2,33 @@ import React from 'react';
 import "./Card.scss";
 
 // receiving data from array and outputting an individual beer card
-const Card = ({ name, image, description, ph, abv, first_brewed }) => {
+const Card = ({ name, image, description, abv, ph, first_brewed, food_pairing }) => {
     return (
         <div className="card">
             <section className="card__text">
-                
-                {/* TODO: align all headings evenly */}
-                <h3 className="card__heading">{name}</h3>
-                
-                {/* TODO: add scrollbar/see more button (for longer descriptions) */}
-                <p className="card__description">
-                    <ul>
-                        <li><b>ABV:</b> {abv}%</li>
-                        <li><b>First Brewed:</b> {first_brewed}</li>
-                        <li><b>ph:</b> {ph}</li>
-                    </ul>
+                <h3 className="card__text-heading">{name}</h3>
 
-                    {description}
+                <p className="card__text-description">
+                    <section>
+                        <p><b>ABV:</b> {abv}%</p>
+                        <p><b>First Brewed:</b> {first_brewed}</p>
+                        <p><b>ph:</b> {ph}</p>
+                        
+                        {/* separating foods with comma */}
+                        <p><b>Food Pairing: </b>
+                            {
+                                food_pairing.map((food, i) => {
+                                    return `${food}${i<food_pairing.length-1 ? "," : ""} `
+                                })
+                            }
+                        </p>
+
+                        <p>{description}</p>
+                    </section>
+                    <section className="card__text-image">
+                        <img src={image} alt={name}  />
+                    </section>
                 </p>
-            </section>
-            <section className="card__image">
-                <img src={image} alt={name}  />
             </section>
         </div>
     )
