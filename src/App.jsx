@@ -25,16 +25,19 @@ const getFilteredBeers = (searchQuery, filter) => {
     return beers.filter(beer => {
       const {first_brewed, ph, abv} = beer;
       const matchFound = checkForMatch(searchQuery, beer);
-  
-      switch(filter) {
-        case("ABV"): return matchFound && abv > 6;
-        
-        case("Classic"): return matchFound && parseInt(first_brewed.split("/")[1]) <= 2010;
-        
-        case("Acidic"): return matchFound && ph < 4;
 
-        default: return matchFound;
+      const filterChecks = [
+        ["ABV", abv > 6], 
+        ["Classic", parseInt(first_brewed.split("/")[1]) <= 2010],
+        ["Acidic", ph < 4],
+      ];
+
+      for (let i = 0; i < filterChecks.length; i++) {
+        if(filter === filterChecks[i][0]) {
+          return matchFound && filterChecks[i][1];
+        }
       }
+      return matchFound;
     });
 }
 

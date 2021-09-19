@@ -7,7 +7,7 @@ import FilterItem from "./FilterItem/FilterItem";
 const FiltersList = ({ handleFilter }) => {
     const items = [
         ["All", "All"],
-        ["High ABV (>6.0%)", "ABV"],
+        ["High ABV (> 6.0%)", "ABV"],
         ["Classic Range", "Classic"],
         ["Acidic (ph < 4)", "Acidic"],
     ]
