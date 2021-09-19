@@ -1,6 +1,6 @@
 import beers from "../data/beers";
 
-// checking multiple keys in object for search query match
+// checking multiple keys in object for at least one search query match (must be strings)
 export const checkForMatch = (searchQuery, beer) => {
     const {name, description, first_brewed, ph, abv, food_pairing} = beer;
 
@@ -17,7 +17,9 @@ export const checkForMatch = (searchQuery, beer) => {
 }
 
 // update array (add/remove) if filter is checked and the array doesn't already contain this value
-export const updateFilterArray = (event, selectedFilters, setSelectedFilters, checkboxValue) => {
+export const updateFilterArray = (event, selectedFilters, setSelectedFilters) => {
+    const checkboxValue = event.target.value;
+    
     if(event.target.checked ) {
         if(!selectedFilters.includes(checkboxValue)) {
             setSelectedFilters([...selectedFilters, checkboxValue]);
@@ -31,7 +33,7 @@ export const enableSelectedFilters = (matchFound, filterChecks, selectedFilters)
     let filterReturns = [];
     for (let i = 0; i < filterChecks.length; i++) {
         if(selectedFilters.includes(filterChecks[i][0])) {
-        filterReturns.push(filterChecks[i][1]);
+            filterReturns.push(filterChecks[i][1]);
         }
     }
 
@@ -49,15 +51,15 @@ export const enableSelectedFilters = (matchFound, filterChecks, selectedFilters)
 // checking beers array for any search matches and applying filters if any selected
 export const getFilteredBeers = (searchQuery, selectedFilters) => {
     return beers.filter(beer => {
-    const {first_brewed, ph, abv} = beer;
-    const matchFound = checkForMatch(searchQuery, beer);
+        const {first_brewed, ph, abv} = beer;
+        const matchFound = checkForMatch(searchQuery, beer);
 
-    const filterChecks = [
-        ["ABV", abv > 6], 
-        ["Classic", parseInt(first_brewed.split("/")[1]) <= 2010],
-        ["Acidic", ph < 4],
-    ];
+        const filterChecks = [
+            ["ABV", abv > 6], 
+            ["Classic", parseInt(first_brewed.split("/")[1]) <= 2010],
+            ["Acidic", ph < 4],
+        ];
 
-    return enableSelectedFilters(matchFound, filterChecks, selectedFilters);
+        return enableSelectedFilters(matchFound, filterChecks, selectedFilters);
     });
 }

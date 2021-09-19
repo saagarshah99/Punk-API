@@ -13,9 +13,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const handleSearch = event => setSearchQuery(event.target.value.toLowerCase());
   const [selectedFilters, setSelectedFilters] = useState([]);
-  const handleFilter = (event) => {
-    updateFilterArray(event, selectedFilters, setSelectedFilters, event.target.value);
-  }
+  const handleFilter = (event) => updateFilterArray(event, selectedFilters, setSelectedFilters);
   
   return (
     <div className="App">
