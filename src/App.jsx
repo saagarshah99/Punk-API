@@ -17,16 +17,7 @@ const checkForMatch = (searchQuery, {name, description, first_brewed, ph, abv}) 
     abv.toString(),
   ];
 
-  
-
-  let numberOfMatches = 0;
-  for (let i = 0; i < keys.length; i++) {
-    if(keys[i].includes(searchQuery)) {
-      numberOfMatches++;
-    }
-  }
-
-  return numberOfMatches > 0;
+  return keys.filter(key => key.includes(searchQuery)).length > 0;
 }
 
 // checking beers array for any search matches and applying filters if any selected
@@ -35,15 +26,15 @@ const getFilteredBeers = (searchQuery, filter) => {
       const {first_brewed, ph, abv} = beer;
       const matchFound = checkForMatch(searchQuery, beer);
   
-      if(filter === "ABV") return matchFound && abv > 6;
-      
-      else if(filter === "Classic") {
-        return matchFound && parseInt(first_brewed.split("/")[1]) <= 2010;
+      switch(filter) {
+        case("ABV"): return matchFound && abv > 6;
+        
+        case("Classic"): return matchFound && parseInt(first_brewed.split("/")[1]) <= 2010;
+        
+        case("Acidic"): return matchFound && ph < 4;
+
+        default: return matchFound;
       }
-  
-      else if(filter === "Acidic") return matchFound && ph < 4;
-      
-      return matchFound;
     });
 }
 

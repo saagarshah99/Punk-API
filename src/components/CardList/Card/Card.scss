@@ -3,7 +3,7 @@
     border-radius: 20px;
     display: flex;
     margin: 10px;
-    max-height: 45vh;
+    max-height: 47vh;
     
     &__text {
         margin: 10%;
@@ -16,11 +16,13 @@
             align-items: center;
             gap: 10px;
             
-            section {p {margin-top: 10px;}}
         }
         
+        p {margin-top: 10px;}
+        
         &-image {
-            width: 20%;
+            display: flex;
+            justify-content: center;
             
             img {width: 3vw;}
         }

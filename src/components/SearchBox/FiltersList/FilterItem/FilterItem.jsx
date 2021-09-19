@@ -6,9 +6,8 @@ const FilterItem = ({ handleFilter, items }) => {
     return items.map((item, i) => {
         return (
             <div className="filter-item">
-                <section>
-                    <label>{item[0]}</label>
-                </section>
+                <section><label>{item[0]}</label></section>
+
                 <section>
                     <input type="radio" name="radFilters" defaultChecked={i === 0}
                     onClick={handleFilter} value={item[1]} />
