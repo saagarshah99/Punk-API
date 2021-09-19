@@ -9,8 +9,10 @@ const FilterItem = ({ handleFilter, items }) => {
                 <section><label>{item[0]}</label></section>
 
                 <section>
-                    <input type="radio" name="radFilters" defaultChecked={i === 0}
+                    <input type="checkbox" name="radFilters"
                     onClick={handleFilter} value={item[1]} />
+                    {/* <input type="checkbox" name="radFilters" defaultChecked={i === 0}
+                    onClick={handleFilter} value={item[1]} /> */}
                 </section>
             </div>
         )
