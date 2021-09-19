@@ -12,12 +12,7 @@ const getFacts = (props) => {
     
         ["First Brewed", first_brewed], 
     
-        [
-            "Food Pairing", 
-            food_pairing.map((food, i) => {
-                return `${food}${i<food_pairing.length-1 ? "," : ""} ` //comma separation
-            })
-        ],
+        ["Food Pairing", food_pairing.join(", ")],
 
         ["Description", description],
     ];
