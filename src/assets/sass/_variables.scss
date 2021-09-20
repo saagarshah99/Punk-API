@@ -1,9 +1,23 @@
-// colour scheme: // https://coolors.co/f7fff7-343434-2f3061-ffe66d-6ca6c1
+/*
+    COLOUR SCHEMES AND GRADIENTS GENERATED:
+    - https://coolors.co/f7fff7-343434-2f3061-ffe66d-6ca6c1
+    - https://cssgradient.io/
+*/
 
-// $primary-background: rgb(131,58,180);
-// $primary-background-gradient: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+
+/********************BACKGROUND COLOURS*********************/
+
 $primary-background: #6CA6C1;
 $primary-background-gradient: linear-gradient(90deg, rgb(89, 84, 189) 0%, rgba(0,212,255,1) 92%);
+$secondary-background: #343434;
+
+
+/********************FOREGROUND COLOURS*********************/
 
 $primary-text-colour: white;
 $secondary-text-colour: #FFE66D;
+
+
+/********************FOREGROUND COLOURS*********************/
+
+$primary-font: Arial, Helvetica, sans-serif;
