@@ -22,7 +22,7 @@ const getFacts = ({ beer }) => {
 
 // receiving data from array and outputting an individual beer card
 const Card = ({ beer }) => {
-    const { name, image } = beer;
+    const { name, image_url } = beer;
     
     return (
         <div className="card">
@@ -30,7 +30,7 @@ const Card = ({ beer }) => {
                 <h3 className="card__text-heading">{name}</h3>
 
                 <p className="card__text-image">
-                    <img src={image} alt={name}  />
+                    <img src={image_url} alt={name}  />
                 </p>
                 
                 <p className="card__text-description">
