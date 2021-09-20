@@ -5,8 +5,7 @@ import Card from './Card/Card';
 // receiving array and mapping through it to output card for each beer (passing in data w/ props)
 const CardList = ({ beerArr }) => {
 
-    return !beerArr.length ? "No beers found..." : beerArr.map((beer) => {
-        
+    return beerArr.map((beer) => {
         const {name, image_url, description, volume, abv, first_brewed, food_pairing} = beer;
         
         return (
@@ -20,6 +19,7 @@ const CardList = ({ beerArr }) => {
                 food_pairing={food_pairing} 
             />
         )
+        
     })
 }
 
