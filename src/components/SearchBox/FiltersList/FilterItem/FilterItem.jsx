@@ -3,7 +3,7 @@ import "./FilterItem.scss";
 
 // looping through items to output filter checkboxes
 const FilterItem = ({ handleFilter, items }) => {
-    return items.map((item, i) => {
+    return items.map((item) => {
         return (
             <div className="filter-item">
                 <section><label>{item[0]}</label></section>

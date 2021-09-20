@@ -1,9 +1,11 @@
+// styles for entire grid containing all beer cards
 .card-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     height: 100vh;
 }
 
+// handling responsiveness for beer card grid
 @media screen and (max-width: 1100px) {.card-list {grid-template-columns: repeat(2, 1fr);}}
 @media screen and (max-width: 700px) {.card-list {grid-template-columns: repeat(1, 1fr);}}
 @media screen and (max-height: 1185px) {.card-list {padding-bottom: 25px;}}

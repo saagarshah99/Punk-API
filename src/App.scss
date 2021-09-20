@@ -1,5 +1,6 @@
 @use "./assets/sass/_variables.scss" as *;
 
+// universal reset rule
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,7 @@
   font-family: $primary-font;
 }
 
+// general page styles
 .App {
   display: flex;
   align-items: center;
@@ -14,6 +16,7 @@
   background-color: $primary-background;
   background: $primary-background-gradient;
   
+  // side navbar styles
   .navbar {
     display: flex;
     flex-direction: column;
@@ -23,6 +26,7 @@
   }
 }
 
+// handling responsiveness for entire page (including navbar)
 @media screen and (max-width: 992px) {
   .App {
     flex-direction: column;
