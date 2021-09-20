@@ -2,8 +2,8 @@ import React from 'react';
 import "./Card.scss";
 
 // take some data from array and map through it to store facts to output
-const getFacts = (props) => {
-    const { abv, ph, volume, first_brewed, food_pairing, description } = props;
+const getFacts = ({ beer }) => {
+    const { abv, ph, volume, first_brewed, food_pairing, description } = beer;
 
     return [
         ["ABV", `${abv}%`], 
@@ -21,8 +21,8 @@ const getFacts = (props) => {
 }
 
 // receiving data from array and outputting an individual beer card
-const Card = (props) => {
-    const { name, image } = props;
+const Card = ({ beer }) => {
+    const { name, image_url } = beer;
     
     return (
         <div className="card">
@@ -30,12 +30,12 @@ const Card = (props) => {
                 <h3 className="card__text-heading">{name}</h3>
 
                 <p className="card__text-image">
-                    <img src={image} alt={name}  />
+                    <img src={image_url} alt={name}  />
                 </p>
                 
                 <p className="card__text-description">
                     <section>
-                        {getFacts(props).map((fact) => <p><b>{fact[0]}: </b>{fact[1]}</p>)}
+                        {getFacts({beer}).map((fact) => <p><b>{fact[0]}: </b>{fact[1]}</p>)}
                     </section>
                 </p>
             </section>

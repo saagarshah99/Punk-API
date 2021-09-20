@@ -1,5 +1,6 @@
 @use "../../../assets/sass/_variables.scss" as *;
 
+// styles for each individual beer card
 .card {
     border-radius: 20px;
     display: flex;
@@ -13,19 +14,16 @@
         overflow-y: auto; // only add scrollbar if needed
         
         &-heading {text-align: center;}
-        
+
         &-description {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
+        
         h3, b {color: $secondary-text-colour;}
-
-        p {
-            margin-top: 10px; 
-            font-size: small;
-        }
+        
+        p {margin-top: 10px; font-size: small;}
         
         &-image {
             display: flex;
@@ -36,6 +34,7 @@
     }
 }
 
+// handling responsiveness for beer card
 @media screen and (max-width: 700px) {
     .card {
         &-text {
