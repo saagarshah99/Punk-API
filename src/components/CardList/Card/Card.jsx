@@ -3,12 +3,14 @@ import "./Card.scss";
 
 // take some data from array and map through it to store facts to output
 const getFacts = (props) => {
-    const { abv, volume, first_brewed, food_pairing, description } = props;
+    const { abv, ph, volume, first_brewed, food_pairing, description } = props;
 
     return [
         ["ABV", `${abv}%`], 
         
         ["Volume", `${volume.value} ${volume.unit}`],
+        
+        ["ph", ph], 
     
         ["First Brewed", first_brewed], 
     

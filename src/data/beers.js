@@ -491,7 +491,7 @@ const beers = [
         "id": 5,
         "name": "Avery Brown Dredge",
         "tagline": "Bloggers' Imperial Pilsner.",
-        "first_brewed": "02/2011",
+        "first_brewed": "02/2010",
         "description": "An Imperial Pilsner in collaboration with beer writers. Tradition. Homage. Revolution. We wanted to showcase the awesome backbone of the Czech brewing tradition, the noble Saaz hop, and also tip our hats to the modern beers that rock our world, and the people who make them.",
         "image_url": "https://images.punkapi.com/v2/5.png",
         "abv": 7.2,
