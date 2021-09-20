@@ -13,7 +13,7 @@ const getFacts = (props) => {
         ["First Brewed", first_brewed], 
     
         ["Food Pairing", food_pairing.join(", ")],
-
+    
         ["Description", description],
     ];
 }
